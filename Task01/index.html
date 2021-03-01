@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student System</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container">
+    <section class="my-5">
+        <button class='btn btn-warning' id="showhide">
+            show form
+        </button>
+    </section>
+    <form id="addStudent" class="row justify-content-around my-3 p-3 border border-3 rounded border-info d-none">
+        <div class ="col-6">
+            <input placeholder="name" class="form-control my-3 " name="name">
+            <input placeholder="class" class="form-control my-3 " name="class">
+        </div>
+        <div class ="col-6">
+            <input placeholder="age" class="form-control my-3 " name="age">
+            <input placeholder="degree" class="form-control my-3 " name="degree">
+        </div>
+        <button class="btn btn-success col-3">add student</button >
+    </form>
+    <table class="table table-bordered text-center">
+        <thead>
+            <th>#</th>
+            <th>name</th>
+            <th>class</th>
+            <th>age</th>
+            <th>degree</th>
+            <th>grade</th>
+            <th>actions</th>
+        </thead>
+        <tbody id="studentsTable">
+        </tbody>
+    </table>
+    <script src="js/myscript.js"></script>
+</body>
+</html>
