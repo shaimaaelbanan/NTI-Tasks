@@ -1,0 +1,17 @@
+{
+  "name": "task02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "pkg": "^4.4.9",
+    "validator": "^13.5.2",
+    "yargs": "^16.2.0"
+  }
+}
