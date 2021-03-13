@@ -1,0 +1,44 @@
+*, body ,html {
+    font-family: 'Roboto', sans-serif;
+}
+.custom-nav img {
+    height: 40px;
+    width: 120px;
+}
+.custom-nav a svg{
+    font-size: 23px;
+    text-decoration: none;
+    margin: 10px 9px 0px;
+    /* padding-top: 10px; */
+}
+.form-container {
+    background-image: url("../img/blue-mug-laptop-pexels-photo-198285.jpg");
+    background-size: 100% 100%;
+    color: white;
+}
+.form-container .overlay{
+    background-color: rgba(17, 17, 17, 0.5686274509803921);
+}
+.form-container .num {
+    border: 2px solid #327c89;
+    border-radius: 50%;
+    padding: .3rem .7rem;
+    font-size: 19px;
+    font-weight: bold;
+}
+.form-container .form-box{
+    background-color: white;
+}
+.form-container .form-box .form-control{
+    border: 1px solid transparent;
+    margin-top: 1rem;
+    border-bottom: 1px solid #eaedf1;
+    border-radius: 0rem;
+}
+.form-container .form-box  .custom-btn{
+    background-color: #29c2fe;
+    width: 100%;
+    height: 57px;
+    color: white;
+    font-weight: bold;
+}
