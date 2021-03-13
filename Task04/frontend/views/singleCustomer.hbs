@@ -1,0 +1,11 @@
+{{>header}}
+{{>navbar}}
+{{#if customer.name}}
+<section class="container my-3">
+    <h2>{{customer.name}}</h2>
+    <p>{{customer.email}}</p>
+{{else}}
+<h2 class="alert alert-danger">Invalid customer name</h2>
+{{/if}}
+</section>
+{{>footer}}

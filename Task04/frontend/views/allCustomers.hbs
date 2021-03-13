@@ -1,0 +1,21 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-3">
+    <div class="row">
+        {{#each customers}}
+        <div class="col-4">
+            <div class="m-2 p-2 border border-promary border-2">
+                <h3>{{this.name}}</h3>
+                <p>{{this.username}}</p>
+                <a href="/allCustomers/{{@index}}" class="btn btn-primary">Details</a>
+                <a href="/delCustomer/{{this.id}}" class="btn btn-primary" type="submit">Delete</a>
+            </div>
+        </div>
+        {{else}}
+        <div class="alert alert-danger">
+            No customers found
+        </div>
+        {{/each}}
+    </div>
+</section>
+{{>footer}}
