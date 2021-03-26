@@ -68,11 +68,6 @@ router.get('/activate/:id', async(req, res)=>{
     }
 })
 
-// show profile
-router.get('/myProfile', auth,async(req,res)=>{
-    res.send(req.user)
-})
-
 // logout
 router.post('/logout', auth, async(req, res)=>{
     try{
@@ -93,6 +88,25 @@ router.post('/logout', auth, async(req, res)=>{
             message:'user register error'
         })
     }
+})
+
+// show profile
+router.get('/myProfile', auth,async(req,res)=>{
+    res.send(req.user)
+})
+
+// edit profile
+router.patch('/user/profile', auth, async(req,res)=>{
+    requestedUpdates = Object.keys(req.body)
+    allowed=['name', 'password']
+    isValid = requestedUpdates.every(update=> allowed.includes(update))
+    if(!isValid) return res.send('invalid')
+    try{
+        requestedUpdates.forEach(update=> req.user[update] = req.body[update])
+        await req.user.save()
+        res.send('updated')
+    }
+    catch(e){res.send(e)}
 })
 
 // deactivate account
@@ -151,20 +165,6 @@ catch(error){
 }
 })
 
-// edit profile
-router.patch('/user/profile', auth, async(req,res)=>{
-    requestedUpdates = Object.keys(req.body)
-    allowed=['name', 'password']
-    isValid = requestedUpdates.every(update=> allowed.includes(update))
-    if(!isValid) return res.send('invalid')
-    try{
-        requestedUpdates.forEach(update=> req.user[update] = req.body[update])
-        await req.user.save()
-        res.send('updated')
-    }
-    catch(e){res.send(e)}
-})
-
 // buy product
 router.post('/buyProduct', auth, async(req, res)=>{
     try{
@@ -183,30 +183,17 @@ router.post('/buyProduct', auth, async(req, res)=>{
     }
 })
 
-// change email with verfication
-var upload = multer({ dest: 'images/profile' })
-router.post('/profile', auth, upload.single('avatar'), async  (req, res)=> {
-    filename=req.file.destination+ '/' + req.file.filename 
-    fileWithExt = filename+'.'+ (req.file.originalname.split('.').pop())
-    fs.rename(filename, fileWithExt, function(err) {
-        if ( err ) console.log('ERROR: ' + err);
-    });
-    req.user.userProfile= fileWithExt
-    await req.user.save()
-    res.send(req.user)
+// rate product
+
+// review on product
+
+// show single product
+router.get('/allProducts/:id', auth,async(req,res)=>{
+    res.send(req.product)
 })
-imgName=''
-let storage = multer.diskStorage({
-    destination:function(req,res,cb){cb(null, 'images')},
-    filename:function(req,file,cb){
-        imgName = Date.now()+'.'+file.originalname.split('.').pop()
-        cb(null, imgName)
-    }
-})
-var upload1 = multer({storage:storage})
-router.post('/upload', auth, upload1.single('img'), async(req,res)=>{
-    res.send({name:'images/'+imgName})
-})
+
+// show all products
+
 
 
 module.exports = router

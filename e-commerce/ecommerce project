@@ -1,0 +1,58 @@
+//models 
+===> admin
+    id => auto increament 
+    fname
+    lname
+    phone => optional
+    country => from list
+    password
+    image
+    address array of address
+    birthdate
+    email
+    username
+
+===> user
+    id => auto increament 
+    fname
+    lname
+    phone => optional
+    country => from list
+    password
+    image
+    address array of address
+    birthdate
+    email
+    username
+
+===> product
+    _id
+    userid
+    adminid
+    title
+    details
+    type => text, image
+    rates
+    reviews [review details, userid]
+
+
+// routes
+register (user/admin) => done
+activate account from email (user/admin) => done
+logout (user/admin) => done
+show profile (user/admin) => done
+edit profile (user/admin) => done
+deactivate account (user/admin) => done
+remove account (user/admin) => done
+reset password (user/admin) => done
+add product (admin)
+edit product (admin) => done
+remove products (admin) => done
+remove users (admin) => done
+show single user (admin) => done
+show all users (admin)
+buy product (user)
+rate product (user)
+review on product (user)
+show single product (user) => done
+show all products (user)

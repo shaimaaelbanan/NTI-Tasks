@@ -46,9 +46,6 @@ const adminSchema = new mongoose.Schema({
             addrDetails:{type:String}
         }
     }],
-    users:[{
-        type:mongoose.Schema.Types.ObjectId
-    }],
     tokens:[
         {token:{type:String, required:true}}
     ],
