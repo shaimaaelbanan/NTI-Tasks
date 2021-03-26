@@ -9,7 +9,7 @@ const dbConnection = (callback)=>{
 }
 
 //add user inside db
-const addUser = (userData) =>{
+const addUser = (userData)=>{
     dbConnection(db=>{
         db.collection('user').insertOne(userData, (error, response)=>{
             console.log(response)
@@ -17,7 +17,7 @@ const addUser = (userData) =>{
     })
 }
 //show all users
-const showAll = (cb) =>{
+const showAll = (cb)=>{
     dbConnection(db=>{
         db.collection('user').find().toArray((err,res)=>{
             if(err) cb('error',false)
@@ -27,7 +27,7 @@ const showAll = (cb) =>{
     
 }
 //show single user
-const showSingle = (id, cb)=>{
+const showSingle = (id,cb)=>{
     dbConnection(db=>{
         db.collection('user').findOne({_id: new ObjectID(id)}, (err,res)=>{
             if(err) cb('error', false)

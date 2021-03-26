@@ -57,7 +57,6 @@ app.get('/deleteUser/:id', (req,res)=>{
     res.render('/showAll')
 })
 
-
 app.get('/editUser/:id', (req,res)=>{
     id = req.params.id   
     if(req.query.newName) {
