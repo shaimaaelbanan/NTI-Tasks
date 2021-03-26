@@ -2,9 +2,6 @@ const AdminBro = require('admin-bro')
 const AdminBroMongoose = require('@admin-bro/mongoose')
 const mongoose = require('mongoose')
 
-const productSchema = require('./product.model')
-const userSchema = require('./user.model')
-
 const adminSchema = new mongoose.Schema({
     adminId:{type:Number},
     fname:{type:String, required:true, trim:true},
@@ -18,7 +15,7 @@ const adminSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        enum:['egypt', 'palstine', 'canda', 'iraq']
+        enum:['egypt', 'palstine', 'canada', 'iraq']
     },
     password:{
         type:String,

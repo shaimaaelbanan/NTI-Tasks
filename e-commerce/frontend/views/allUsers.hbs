@@ -1,0 +1,26 @@
+{{>header}}
+{{>nav}}
+<table class="table table-stripped">
+    <thead>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>User Email</th>
+        <th>User Phone</th>
+        <th>User Message</th>
+        <th>Actions</th>
+    </thead>
+    {{#each data}}
+    <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.msg}}</td>
+        <td>
+            <a href="/deleteUser/{{this._id}}" class="btn btn-danger">Delete</a>
+            <a href="/showAll/{{this._id}}" class="btn btn-danger">Show</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+{{>footer}}
