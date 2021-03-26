@@ -55,8 +55,7 @@ const userSchema = new mongoose.Schema({
     }
 },{
     timestamps:true
-}
-)
+})
 userSchema.virtual('Products', {
     ref:'Product',
     localField:'_id',
@@ -64,7 +63,7 @@ userSchema.virtual('Products', {
 })
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
-    deleted = ['email', 'password', '_id', 'tokens', 'friends']
+    deleted = ['email', 'password', '_id', 'tokens', 'products']
     deleted.forEach(element => {
         delete user[element]
     });

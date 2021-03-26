@@ -116,7 +116,7 @@ router.get('/deactivate',auth, async(req, res)=>{
 })
 
 // remove account
-router.delete('/me', auth, async(req,res)=>{
+router.delete('/deleteUser', auth, async(req,res)=>{
     try{
         await req.user.remove()
         res.status(200).send({
